@@ -1,3 +1,22 @@
 /**
 * Accordeon
 */
+.accordeon details {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: aqua;
+    cursor: pointer;
+}
+.accordeon details[open] {
+    background-color: light;
+}
+
+.accordeon summary { 
+    list-style: none;
+}
+.accordeon > details > summary::marker,
+.accordeon > details > summary::-webkit-details-marker {
+    display: none;
+}
