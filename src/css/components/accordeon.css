@@ -1,12 +1,16 @@
 /**
 * Accordeon
 */
+:root {
+    interpolate-size: allow-keywords;
+}
+
 .accordeon details {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: aqua;
+    background: linear-gradient(270deg, #fff8a9, #d1fcc4);
     cursor: pointer;
 }
 .accordeon details[open] {
@@ -15,6 +19,10 @@
 
 .accordeon summary { 
     list-style: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .accordeon > details > summary::marker,
 .accordeon > details > summary::-webkit-details-marker {
@@ -24,14 +32,37 @@
 .accordeon summary::after {
     content: "";
     display: inline-block;
-    margin-left: 10px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent transparent #333;
-    transform: rotate(0deg);
-    transition: transform 0.3s;
+    width: 0;
+    height: 0;
+    border-left: 75px solid #b1ff53;
+    border-top: 35.5px solid transparent;
+    border-bottom: 35.5px solid transparent;
+    position: absolute;
+    left: calc(100px + 10px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.2s;
+
+
 }
 
 .accordeon details[open] summary::after {
-    transform: rotate(90deg);
+
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordeon details div {
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.accordeon ::details-div {
+    overflow: hidden;
+    transition: height 0.5s ease;
+    height: 0;
+}
+
+.accordeon details[open] > div {
+    height: auto;
 }
