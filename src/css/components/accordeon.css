@@ -20,3 +20,18 @@
 .accordeon > details > summary::-webkit-details-marker {
     display: none;
 }
+
+.accordeon summary::after {
+    content: "";
+    display: inline-block;
+    margin-left: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #333;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+.accordeon details[open] summary::after {
+    transform: rotate(90deg);
+}
